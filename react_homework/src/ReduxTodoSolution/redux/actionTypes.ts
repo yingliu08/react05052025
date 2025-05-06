@@ -1,0 +1,12 @@
+export const TODOS_ADD_TODO = "TODOS_ADD_TODO";
+export const TODOS_TOGGLE_TODO = "TODOS_TOGGLE_TODO";
+export const TODOS_DELETE_TODO = "TODOS_DELETE_TODO";
+export const TODOS_SET_TODOS = "TODOS_SET_TODOS";
+
+export const LOADING_TOGGLE = "LOADING_TOGGLE";
+export const LOADING_START = "LOADING_START";
+export const LOADING_END = "LOADING_END";
+
+export const ERROR_SET = "ERROR_SET";
+
+export const THEME_TOGGLE = "THEME_TOGGLE";
