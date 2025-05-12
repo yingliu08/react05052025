@@ -43,13 +43,13 @@ describe("Objects", () => {
       const events = [
         { name: "Birthday Party", date: "2020-01-01", isCanceled: false },
         { name: "New Year Party", date: "2021-01-01", isCanceled: false },
-        { name: "Christmas Party", date: "2024-12-25", isCanceled: false },
+        { name: "Christmas Party", date: "2025-12-25", isCanceled: false },
       ];
       cancelExpiredEvents(events);
       expect(events).toEqual([
         { name: "Birthday Party", date: "2020-01-01", isCanceled: true },
         { name: "New Year Party", date: "2021-01-01", isCanceled: true },
-        { name: "Christmas Party", date: "2024-12-25", isCanceled: false },
+        { name: "Christmas Party", date: "2025-12-25", isCanceled: false },
       ]);
     });
   });

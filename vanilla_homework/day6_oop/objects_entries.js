@@ -5,4 +5,12 @@ const people = {
 };
 
 // get the average age of the people
-export const getAverageAge = (people) => {};
+export const getAverageAge = (people) => {
+  let total = 0;
+  let res = 0;
+  for (const [key, value] of Object.entries(people)) {
+    total += value.age;
+    res = total / key;
+  }
+  return res;
+};
