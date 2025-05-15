@@ -74,22 +74,22 @@ const {
 } = obj1;
 console.log(kid);
 
-//conbine 2 array together
-const al = ["a", "b", "c"];
-const numbers = [1, 2, 3];
-const res = [...al, ...numbers]; // spread
-const res1 = al.concat(numbers);
+// //conbine 2 array together
+// const al = ["a", "b", "c"];
+// const numbers = [1, 2, 3];
+// const res = [...al, ...numbers]; // spread
+// const res1 = al.concat(numbers);
 
-console.log(res);
-console.log(res1);
+// console.log(res);
+// console.log(res1);
 
-//ternary: shortcut of if else statment
-let age = 12;
-let message = age >= 18 ? "you are an adult" : "you are a minor";
-console.log(message);
+// //ternary: shortcut of if else statment
+// let age = 12;
+// let message = age >= 18 ? "you are an adult" : "you are a minor";
+// console.log(message);
 
-//write function
-function sayHi(name) {
-  console.log(`hi, ${name}`);
-}
-sayHi("ying");
+// //write function
+// function sayHi(name) {
+//   console.log(`hi, ${name}`);
+// }
+// sayHi("world");
