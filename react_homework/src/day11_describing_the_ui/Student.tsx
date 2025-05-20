@@ -12,15 +12,48 @@
 import { Component } from "react";
 
 // implement a Student component here
-
-export interface StudentType {}
-
-export function StudentFn() {
-  return <div data-testid="student"></div>;
+export enum Grade {
+  A = "A",
+  B = "B",
+  C = "C",
+  D = "D",
+  F = "F",
 }
 
-export class StudentClass extends Component {
+export interface StudentType {
+  id: number;
+  name: string;
+  age: number;
+  grade: Grade;
+}
+interface StudentClassProps {
+  student: StudentType;
+}
+
+export function StudentFn({ student }: { student: StudentType }) {
+  const { id, name, age, grade } = student;
+  return (
+    <div data-testid="student">
+      Student
+      <div>{id}</div>
+      <div>{name}</div>
+      <div>{age}</div>
+      <div>{grade}</div>
+    </div>
+  );
+}
+
+export class StudentClass extends Component<StudentClassProps> {
   render() {
-    return <div data-testid="student">Student</div>;
+    const { id, name, age, grade } = this.props.student;
+    return (
+      <div data-testid="student">
+        Student
+        <div>{id}</div>
+        <div>{name}</div>
+        <div>{age}</div>
+        <div>{grade}</div>
+      </div>
+    );
   }
 }

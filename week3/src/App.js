@@ -1,20 +1,24 @@
 import "./App.css";
+import MyCom from "./MyCom";
+import ShowHideText from "./ShowHideText";
+import ArrayPractice from "./ArrayPractice";
+import Blog from "./Blog";
+import ObjectPractice from "./ObjectPractice";
 
 function App() {
   return (
     <div className="App">
-      <Job salary={90000} position="Senior sde" company="Amazon" />
-      <Job salary={100000} position="junior sde" company="google" />
+      <Blog />
+      <br />
+      <br />
+      <ObjectPractice />
+      <ArrayPractice />
+      <br />
+      <br />
+      <ShowHideText />
+      <MyCom />
     </div>
   );
 }
-const Job = (props) => {
-  return (
-    <div>
-      <h1>{props.salary}</h1>
-      <h1>{props.position}</h1>
-      <h1>{props.company}</h1>
-    </div>
-  );
-};
+
 export default App;
