@@ -4,7 +4,6 @@ import ShowHideText from "./ShowHideText";
 import ArrayPractice from "./ArrayPractice";
 import Blog from "./Blog";
 import ObjectPractice from "./ObjectPractice";
-import classPractice from "./classPractice";
 
 const cars = [
   { id: 1, year: 2022, name: "honda", model: "corana" },
@@ -23,14 +22,9 @@ function App() {
         model="corolla"
         owner={{ id: 1, name: "bob" }}
       /> */}
-      <classPractice />
       <Blog />
-      <br />
-      <br />
       <ObjectPractice />
       <ArrayPractice />
-      <br />
-      <br />
       <ShowHideText />
       <MyCom />
     </div>
