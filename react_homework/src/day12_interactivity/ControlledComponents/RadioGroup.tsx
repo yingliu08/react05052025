@@ -1,17 +1,44 @@
 import { useState } from "react";
+
 export default function RadioGroup() {
-  const [age, setAge] = useState("");
-  function handleSetAge(e: React.ChangeEvent<HTMLSelectElement>) {
-    setAge(e.target.value);
+  const [gender, setGender] = useState("Female");
+  function handleSelected(event: any) {
+    setGender(event.target.value);
   }
   return (
     <div>
-      RadioGroup
-      <select onChange={handleSetAge}>
-        <option value="Ten">Ten</option>
-        <option value="Twenty">Twenty</option>
-        <option value="Thirty">Thirty</option>
-      </select>
+      <h2>RadioGroup</h2>
+      <label style={{ color: "blue", fontWeight: "Bold" }}>Gender</label>
+      <br />
+      <label>
+        <input
+          type="radio"
+          value="Female"
+          checked={gender === "Female"}
+          onChange={handleSelected}
+        />
+        Female
+      </label>
+      <br />
+      <label>
+        <input
+          type="radio"
+          value="Male"
+          checked={gender === "Male"}
+          onChange={handleSelected}
+        />
+        Male
+      </label>
+      <br />
+      <label>
+        <input
+          type="radio"
+          value="Other"
+          checked={gender === "Other"}
+          onChange={handleSelected}
+        />
+        Other
+      </label>
     </div>
   );
 }

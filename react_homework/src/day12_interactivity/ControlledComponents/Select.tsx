@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 
 export default function Select() {
-  const [gender, setGender] = useState<string>("Female");
-  function handleGender(event: React.ChangeEvent<HTMLSelectElement>) {
-    setGender(event.target.value);
+  const [age, setAge] = useState(" ");
+  function handleAge(event: any) {
+    setAge(event.target.value);
   }
   return (
     <div>
-      Select
-      <select value={gender} onChange={handleGender}>
-        <option value="Female">Female</option>
-        <option value="Male">Male</option>
-        <option value="Other">Other</option>
+      <h2>Select & Option</h2>
+      <label style={{ color: "blue", fontWeight: "bold" }}>Age</label>
+      <br />
+      <select onChange={handleAge}>
+        <option value="">-- Select Age --</option>
+        <option value="Ten">Ten</option>
+        <option value="Twenty">Twenty</option>
+        <option value="Thirty">Thirty</option>
       </select>
-      <p>gender is: {gender}</p>
     </div>
   );
 }

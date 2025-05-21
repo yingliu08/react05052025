@@ -34,8 +34,7 @@ export default function TodoListApp() {
   }
   return (
     <div>
-      TodoListApp
-      <h1>Todo List</h1>
+      <h2>Todo List</h2>
       <input
         type="text"
         placeholder="add item..."
