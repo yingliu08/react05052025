@@ -1,17 +1,36 @@
 import React, { useState } from "react";
 
 const Blog = () => {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [author, setAuthor] = useState("kevin");
+  const [blogs, setBlog] = useState([]);
+  const [blogTitle, setTitle] = useState("");
+  const [blogText, setText] = useState("");
+  const [blogAuthor, setAuthor] = useState("kevin");
+  function handleAddBlog() {
+    const newBlog = { title: blogTitle, text: blogText, author: blogAuthor };
+    setBlog(() => {
+      return [...blogs, newBlog];
+    });
+    setTitle("");
+    setText("");
+    setAuthor("");
+  }
   return (
     <div>
+      <ul>
+        {blogs.map((blog, index) => {
+          return (
+            <li key={index}>
+              {blog.title} {blog.text} {blog.author}
+            </li>
+          );
+        })}
+      </ul>
       <form>
         <label>Blog title: </label>
         <input
           type="text"
           placeholder="enter title"
-          value={title}
+          value={blogTitle}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
@@ -19,14 +38,14 @@ const Blog = () => {
         <label>Blog text: </label>
         <textarea
           required
-          value={text}
+          value={blogText}
           onChange={(e) => {
             setText(e.target.value);
           }}
         ></textarea>
         <label>Blog author:</label>
         <select
-          value={author}
+          value={blogAuthor}
           onChange={(e) => {
             setAuthor(e.target.value);
           }}
@@ -34,11 +53,8 @@ const Blog = () => {
           <option value="john">john</option>
           <option value="kevin">kevin</option>
         </select>
-        <button>Add Blog</button>
+        <button onClick={handleAddBlog}>Add Blog</button>
       </form>
-      <p>{title}</p>
-      <p>{text}</p>
-      <p>{author}</p>
     </div>
   );
 };

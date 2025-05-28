@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const ArrayPractice = () => {
   const [fruits, setFruit] = useState(["apple", "orange", "banana"]);
+  //add to fruits
   function handleAddFruit() {
     const inputText = document.getElementById("inputId").value;
     document.getElementById("inputId").value = "";
@@ -11,6 +12,7 @@ const ArrayPractice = () => {
     });
     //setFruit([...fruits, inputText]); //this will work too
   }
+  //remove from fruits
   function handleRemoveFruit(index) {
     setFruit(
       fruits.filter((fruit, i) => {
@@ -30,7 +32,8 @@ const ArrayPractice = () => {
           );
         })}
       </ul>
-      <input type="text" placeholder="enter fruit" id="inputId" />
+
+      <input type="text" placeholder="Enter fruit" id="inputId" />
       <button onClick={handleAddFruit}>add</button>
     </div>
   );

@@ -4,24 +4,29 @@ import ShowHideText from "./ShowHideText";
 import ArrayPractice from "./ArrayPractice";
 import Blog from "./Blog";
 import ObjectPractice from "./ObjectPractice";
-
-const cars = [
-  { id: 1, year: 2022, name: "honda", model: "corana" },
-  { id: 2, year: 2022, name: "nissan", model: "corana1" },
-  { id: 3, year: 2021, name: "honda", model: "corana2" },
-  { id: 4, year: 2024, name: "honda2", model: "corana" },
-];
-
+import Cars from "./Cars";
+import usersJSON from "./Users";
+import ArrayOfObject from "./ArrayOfObject";
+import Recipes from "./Recipes";
 function App() {
+  const { users } = usersJSON;
   return (
     <div className="App">
-      <Car />
-      {/* <Car
-        name="toyota"
-        year={2023}
-        model="corolla"
-        owner={{ id: 1, name: "bob" }}
-      /> */}
+      <Recipes />
+      <ul>
+        {users
+          .filter(({ age }) => age < 30)
+          .map((user) => {
+            return (
+              <li key={user.id}>
+                <UserInfo user={user} />
+              </li>
+            );
+          })}
+      </ul>
+
+      <ArrayOfObject />
+      <Cars />
       <Blog />
       <ObjectPractice />
       <ArrayPractice />
@@ -30,27 +35,22 @@ function App() {
     </div>
   );
 }
-function Car(props) {
-  // const { name, year, model, owner } = props;
+function UserInfo({ user }) {
+  const { firstName, lastName, hair, age, gender } = user;
   return (
-    <div>
-      {/* <div style={{ color: "green" }}>name:{name}</div>
-      <div>year:{year}</div>
-      <div>model: {model}</div>
-      <div>{owner.id}</div>
-      <div>{owner.name}</div> */}
-
-      <ul>
-        {cars.map((car) => {
-          const { id, name, year, model } = car;
-          return (
-            <li key={id}>
-              {name} {year} {model}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      <div>
+        {firstName} {lastName}
+        {age}
+      </div>
+      <div style={{ color: gender === "female" ? "pink" : "blue" }}>
+        {gender === "female" ? "women" : "man"}
+      </div>
+      <div>
+        {hair.color} {hair.type}
+      </div>
+    </>
   );
 }
+
 export default App;
