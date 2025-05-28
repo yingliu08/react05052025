@@ -3,6 +3,7 @@ import Counter from "./Counter";
 // import UserInfo from "./UserInfo";
 import SelectedItems from "./SelectedItems";
 import ShoppingCart from "./ShoppingCart";
+import TicTacToe from "./TicTacToe";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Counter />
       <SelectedItems />
       <ShoppingCart />
+      <TicTacToe />
     </div>
   );
 }
