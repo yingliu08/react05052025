@@ -17,7 +17,7 @@ export default function SelectedItems() {
   }
   return (
     <div>
-      <h2>All the selected items</h2>
+      <h2 style={{ color: "blue" }}>All the selected items</h2>
       <label>
         <input
           type="checkbox"

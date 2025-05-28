@@ -52,7 +52,7 @@ export default function ShoppingCart() {
   }, 0);
   return (
     <div>
-      <h2>ShoppingCart</h2>
+      <h2 style={{ color: "blue" }}>ShoppingCart</h2>
       <table style={{ margin: "0 auto" }}>
         <thead>
           <tr>
