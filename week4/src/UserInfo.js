@@ -6,10 +6,16 @@ export default function UserInfo() {
   const [intervalId, setIntervalId] = useState(null);
 
   function handlePrev() {
-    setPostId((prevId) => (prevId -= 1));
+    setPostId((prevId) => (prevId > 0 ? (prevId -= 1) : prevId));
   }
   function handleNext() {
-    setPostId((postId) => (postId += 1));
+    setPostId((prevId) => (prevId += 1));
+  }
+  function handleStop() {
+    if (intervalId !== null) {
+      clearInterval(intervalId);
+      setIntervalId(null);
+    }
   }
 
   useEffect(() => {
@@ -17,9 +23,9 @@ export default function UserInfo() {
       const res = await fetch(
         `https://jsonplaceholder.typicode.com/posts/${postId}`
       );
-      if (!res.ok) {
-        throw new Error("Post not found");
-      }
+      // if (!res.ok) {
+      //   throw new Error("Post not found");
+      // }
       const data = await res.json();
       setPost(data);
     }
@@ -29,7 +35,7 @@ export default function UserInfo() {
   useEffect(() => {
     const id = setInterval(() => {
       setPostId((prev) => (prev += 1));
-    }, 10000);
+    }, 1000);
     setIntervalId(id);
 
     return () => clearInterval(id);
@@ -43,6 +49,7 @@ export default function UserInfo() {
       <div>{title}</div>
       <button onClick={handlePrev}>Prev</button>
       <button onClick={handleNext}>Next</button>
+      <button onClick={handleStop}>Stop</button>
     </div>
   );
 }

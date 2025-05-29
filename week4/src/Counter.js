@@ -25,7 +25,7 @@ export default function Counter() {
   }
   return (
     <div>
-      <h2> {count}</h2>
+      <h2> counter: {count}</h2>
       <button onClick={handleStart} disabled={isRunning}>
         Start
       </button>
