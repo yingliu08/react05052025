@@ -1,0 +1,12 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "text": "buy apple"
+    },
+    {
+      "id": 2,
+      "text": "buy milk"
+    }
+  ]
+}

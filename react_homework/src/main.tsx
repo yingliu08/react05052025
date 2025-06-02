@@ -12,10 +12,12 @@ import LoginForm from "./day16_pattern/ref/LoginForm.tsx";
 import AutoFocusInput from "./day16_pattern/ref/AutoFocusInput.tsx";
 import FetchPosts from "./day16_pattern/customHook/fetch/FetchPosts.tsx";
 import Debounce from "./day16_pattern/customHook/debounce/Debounce.tsx";
+import Toggle from "./day16_pattern/notes/Toggle.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <App />
+    <Toggle />
     <Debounce />
     <AutoFocusInput />
     <FetchPosts />

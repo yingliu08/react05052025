@@ -1,4 +1,5 @@
 import "./App.css";
+
 // import Counter from "./Counter";
 // import UserInfo from "./UserInfo";
 import SelectedItems from "./SelectedItems";
@@ -12,6 +13,7 @@ function App() {
       {/* <Games /> */}
       {/* <UserInfo /> */}
       {/* <Counter /> */}
+
       <SelectedItems />
       <ShoppingCart />
       <TicTacToe />
