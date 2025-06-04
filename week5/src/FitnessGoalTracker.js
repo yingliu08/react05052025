@@ -1,36 +1,28 @@
-import { useState } from "react";
-export default function FitnessGoalTracker() {
-  const [id, setId] = useState(1);
-  const [goals, setGoals] = useState([]);
-  const [fitness, setFitness] = useState("");
-  const [category, setCategory] = useState("Cardio");
-  const [repetition, setRepetition] = useState("");
+import GoalsList from "./components/GoalsList";
+import { useContext } from "react";
+import { GoalsContext } from "./contexts/GoalsContext";
+import { ThemeContext } from "./contexts/ThemeContext";
 
-  function handleAddGoal() {
-    const newGoal = {
-      goalId: id,
-      goalFitness: fitness,
-      goalCategory: category,
-      goalRepetition: repetition,
-      goalIsAchieved: false,
-    };
-    setId((prevId) => prevId + 1);
-    setGoals([...goals, newGoal]);
-    setFitness("");
-    setCategory("Cardio");
-    setRepetition("");
-  }
-  function handleAchieved(id) {
-    setGoals(
-      goals.map((goal) => {
-        return goal.goalId === id
-          ? { ...goal, goalIsAchieved: !goal.goalIsAchieved }
-          : goal;
-      })
-    );
-  }
+export default function FitnessGoalTracker() {
+  const {
+    fitness,
+    setFitness,
+    category,
+    setCategory,
+    repetition,
+    setRepetition,
+    handleAddGoal,
+  } = useContext(GoalsContext);
+  const { theme, handleTheme } = useContext(ThemeContext);
   return (
-    <div className="container mt-5 p-4  ">
+    <div
+      className={`container mt-5 p-4 ${
+        theme === "dark" ? "bg-dark text-white" : "bg-light text-dark"
+      }`}
+    >
+      <button className="btn btn-secondary mb-3" onClick={handleTheme}>
+        Switch Mode
+      </button>
       <h2 className="text-center mb-4">Fitness Goal Tracker</h2>
 
       <div className="mb-3">
@@ -70,34 +62,7 @@ export default function FitnessGoalTracker() {
       <button className="btn btn-success w-100 mb-4" onClick={handleAddGoal}>
         Add Goal
       </button>
-      {goals.map((goal) => {
-        const {
-          goalId,
-          goalFitness,
-          goalCategory,
-          goalRepetition,
-          goalIsAchieved,
-        } = goal;
-        return (
-          <div
-            key={goalId}
-            style={{
-              textDecoration: goalIsAchieved === true ? "line-through" : "none",
-            }}
-          >
-            {goalFitness} -<strong> {goalCategory} </strong>
-            {goalCategory === "Cardio"
-              ? " (" + goalRepetition + " minutes)"
-              : " (" + goalRepetition + " repetitions)"}
-            <button
-              className="btn btn-primary btn-sm"
-              onClick={() => handleAchieved(goalId)}
-            >
-              Mark as Achieved
-            </button>
-          </div>
-        );
-      })}
+      <GoalsList />
     </div>
   );
 }

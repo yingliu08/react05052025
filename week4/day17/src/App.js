@@ -1,36 +1,33 @@
 import "./App.css";
-import { useReducer, createContext } from "react";
 import ComponentA from "./components/ComponentA";
-import ComponentB from "./components/ComponentB";
+// import ComponentB from "./components/ComponentB";
+import { useReducer, createContext } from "react";
 
-export const countContext = createContext();
-export const ACTIONS = {
-  INCREMENT: "increment",
-  DECREMENT: "decrement",
-  RESET: "reset",
-};
+export const counterContext = createContext();
+const initalState = 0;
+
 function reducer(count, action) {
   switch (action.type) {
-    case ACTIONS.INCREMENT:
-      return count + 1;
-    case ACTIONS.DECREMENT:
+    case "increment":
       return count - 1;
-    case ACTIONS.RESET:
-      return 0;
+    case "decrement":
+      return count + 1;
     default:
       return count;
   }
 }
 
 function App() {
-  const [count, dispatch] = useReducer(reducer, 0);
+  const [count, dispatch] = useReducer(reducer, initalState);
   return (
-    <countContext.Provider value={{ count, dispatch }}>
-      <div className="App">
+    <counterContext.Provider value={{ count, dispatch }}>
+      <div>
+        {" "}
+        {count}
         <ComponentA />
-        <ComponentB />
+        {/* <ComponentB /> */}
       </div>
-    </countContext.Provider>
+    </counterContext.Provider>
   );
 }
 

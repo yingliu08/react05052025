@@ -1,19 +1,15 @@
-import "./App.css";
-// import FetchData from "./FetchData";
+import GoalsContextProvider from "./contexts/GoalsContext";
 import FitnessGoalTracker from "./FitnessGoalTracker";
+import ThemeContextProvider from "./contexts/ThemeContext";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      />
-
-      <FitnessGoalTracker />
-      {/* <FetchData /> */}
-    </div>
+    <ThemeContextProvider>
+      <GoalsContextProvider>
+        <div className="App">
+          <FitnessGoalTracker />
+        </div>
+      </GoalsContextProvider>
+    </ThemeContextProvider>
   );
 }
-
-export default App;

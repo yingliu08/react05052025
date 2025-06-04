@@ -47,7 +47,7 @@ export default function FetchData() {
           </tr>
         </thead>
         <tbody>
-          {filteredPost?.map((post) => {
+          {filteredPost.map((post) => {
             const { id, title, tags } = post;
             return (
               <tr key={id}>
