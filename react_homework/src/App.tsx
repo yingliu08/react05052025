@@ -8,8 +8,8 @@ import TodoApp from "./day18_todoApp";
 function App() {
   return (
     <>
-      <TodoApp />
-
+      {/* <TodoApp /> */}
+      <ReduxTodoSolution />
       <Day22Play />
     </>
   );

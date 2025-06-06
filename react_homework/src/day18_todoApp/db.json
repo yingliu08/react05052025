@@ -1,12 +1,6 @@
 {
   "todos": [
-    {
-      "id": 1,
-      "text": "buy apple"
-    },
-    {
-      "id": 2,
-      "text": "buy milk"
-    }
+    { "id": 1, "task": "Buy milk", "completed": false },
+    { "id": 2, "task": "Do homework", "completed": true }
   ]
 }
