@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo, API, setTodos } from "../redux/reducer/todosReducer";
+import { addTodoAsync, fetchTodos } from "../redux/reducer/todosReducer";
 import TodoList from "./TodoList";
 
 export default function NewTodo() {
@@ -8,26 +8,15 @@ export default function NewTodo() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function fetchTodos() {
-      const res = await fetch(API);
-      const data = await res.json();
-      dispatch(setTodos(data));
-    }
-    fetchTodos();
+    dispatch(fetchTodos());
   }, [dispatch]);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch(API, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ task: inputText, completed: false }),
-    });
-    const data = await res.json();
-    dispatch(addTodo(data));
+    dispatch(addTodoAsync(inputText));
     setInputText("");
   }
-  
+
   return (
     <div className="todoContainer">
       <h2>To Do List</h2>

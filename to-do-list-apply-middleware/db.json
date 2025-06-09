@@ -3,16 +3,21 @@
     {
       "id": "3c2b",
       "task": "buy apple",
+      "completed": true
+    },
+    {
+      "id": "2dd7",
+      "task": "buy milk",
       "completed": false
     },
     {
-      "id": "db69",
-      "task": "read book",
-      "completed": false
-    },
-    {
-      "id": "e82a",
+      "id": "e224",
       "task": "buy book",
+      "completed": true
+    },
+    {
+      "id": "fab9",
+      "task": "12",
       "completed": false
     }
   ]

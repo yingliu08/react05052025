@@ -1,24 +1,19 @@
 import { useDispatch } from "react-redux";
-import { toggleTodo, deleteTodo, API } from "../redux/reducer/todosReducer";
+import {
+  deleteTodoAsync,
+  toggleTodoAsync,
+} from "../redux/reducer/todosReducer";
 import "../App.css";
 
 export default function TodoItems({ todo }) {
   const dispatch = useDispatch();
 
-  async function handleDelete() {
-    await fetch(`${API}/${todo.id}`, {
-      method: "DELETE",
-    });
-    dispatch(deleteTodo(todo.id));
+  function handleDelete() {
+    dispatch(deleteTodoAsync(todo.id));
   }
 
-  async function handleToggle() {
-    await fetch(`${API}/${todo.id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ completed: !todo.completed }),
-    });
-    dispatch(toggleTodo(todo.id));
+  function handleToggle() {
+    dispatch(toggleTodoAsync(todo));
   }
 
   return (
