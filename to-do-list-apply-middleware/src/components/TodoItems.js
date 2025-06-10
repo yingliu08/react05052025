@@ -1,38 +1,22 @@
-import { useDispatch } from "react-redux";
-import {
-  deleteTodoAsync,
-  toggleTodoAsync,
-} from "../redux/reducer/todosReducer";
+import { useHistory } from "react-router-dom";
 import "../App.css";
 
 export default function TodoItems({ todo }) {
-  const dispatch = useDispatch();
+  const history = useHistory();
 
-  function handleDelete() {
-    dispatch(deleteTodoAsync(todo.id));
-  }
-
-  function handleToggle() {
-    dispatch(toggleTodoAsync(todo));
+  function handleTodoClick() {
+    history.push(`/todos/${todo.id}`);
   }
 
   return (
-    <div className="todoItem">
-      <div className="todoLeft">
-        <input
-          type="checkbox"
-          checked={todo.completed}
-          onChange={handleToggle}
-        />
-        <span
-          style={{
-            textDecoration: todo.completed ? "line-through" : "none",
-          }}
-        >
-          {todo.task}
-        </span>
-      </div>
-      <button onClick={handleDelete}>Delete</button>
+    <div className="todoItem" onClick={handleTodoClick}>
+      <span
+        style={{
+          textDecoration: todo.completed ? "line-through" : "none",
+        }}
+      >
+        {todo.task}
+      </span>
     </div>
   );
 }

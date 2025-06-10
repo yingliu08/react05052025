@@ -18,7 +18,7 @@ export default function NewTodo() {
   }
 
   return (
-    <div className="todoContainer">
+    <div>
       <h2>To Do List</h2>
       <form onSubmit={handleSubmit}>
         <input

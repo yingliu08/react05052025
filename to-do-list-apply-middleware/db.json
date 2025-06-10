@@ -1,24 +1,32 @@
 {
   "todos": [
     {
-      "id": "3c2b",
+      "id": "ffaf",
       "task": "buy apple",
-      "completed": true
+      "completed": true,
+      "date": "6/10/2025",
+      "description": "description for todo task"
     },
     {
-      "id": "2dd7",
+      "id": "404b",
       "task": "buy milk",
-      "completed": false
+      "completed": true,
+      "date": "6/10/2025",
+      "description": "description for todo task"
     },
     {
-      "id": "e224",
-      "task": "buy book",
-      "completed": true
+      "id": "ad48",
+      "task": "do hw",
+      "completed": false,
+      "date": "6/10/2025",
+      "description": "description for todo task"
     },
     {
-      "id": "fab9",
-      "task": "12",
-      "completed": false
+      "id": "baff",
+      "task": "read book",
+      "completed": false,
+      "date": "6/10/2025",
+      "description": "description for todo task"
     }
   ]
 }

@@ -60,7 +60,12 @@ export const addTodoAsync = (text) => async (dispatch) => {
   const res = await fetch(API, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ task: text, completed: false }),
+    body: JSON.stringify({
+      task: text,
+      completed: false,
+      date: new Date().toLocaleDateString(),
+      description: "description for todo task",
+    }),
   });
   const data = await res.json();
   dispatch(addTodo(data));

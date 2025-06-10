@@ -1,16 +1,14 @@
-.App {
+.todoContainer {
   font-family: sans-serif;
   text-align: center;
-}
-
-.todoContainer {
-  width: 400px;
+  max-width: 600px;
+  width: 100%;
   padding: 16px;
+  margin: 20px auto;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f8f8f8;
   box-shadow: 0 2px 4px rgba(16, 15, 15, 0.1);
-  margin: 20px auto;
 }
 
 .todoItem {
@@ -25,10 +23,9 @@
   border-bottom: none;
 }
 
-.todoLeft {
+.nav {
+  list-style-type: none;
+  width: 200px;
   display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-  word-break: break-word;
+  justify-content: space-evenly;
 }
