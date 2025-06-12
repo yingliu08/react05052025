@@ -3,6 +3,7 @@ import {
   TODOS_ADD_TODO,
   TODOS_TOGGLE_TODO,
   TODOS_DELETE_TODO,
+  TODOS_UPDATE_TODO,
 } from "../actionTypes";
 
 const initialState = [];
@@ -25,6 +26,11 @@ export default function todosReducer(state = initialState, action) {
       return state.filter((todo) => {
         return todo.id !== action.payload;
       });
+    case TODOS_UPDATE_TODO:
+      return state.map((todo) =>
+        todo.id === action.payload.id ? action.payload : todo
+      );
+
     default:
       return state;
   }
@@ -48,6 +54,11 @@ export const toggleTodo = (id) => ({
 export const deleteTodo = (id) => ({
   type: TODOS_DELETE_TODO,
   payload: id,
+});
+
+export const updateTodo = (todo) => ({
+  type: TODOS_UPDATE_TODO,
+  payload: todo,
 });
 
 export const fetchTodos = () => async (dispatch) => {
@@ -85,4 +96,13 @@ export const toggleTodoAsync = (todo) => async (dispatch) => {
     body: JSON.stringify({ completed: !todo.completed }),
   });
   dispatch(toggleTodo(todo.id));
+};
+export const updateTodoAsync = (id, updatedTodo) => async (dispatch) => {
+  const res = await fetch(`${API}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(updatedTodo),
+  });
+  const data = await res.json();
+  dispatch(updateTodo(data));
 };
