@@ -12,6 +12,7 @@ export default function SortedPeople({ people, sortBy }) {
     }
     return copyPeople;
   }, [people, sortBy]);
+  
   return (
     <div>
       <table>

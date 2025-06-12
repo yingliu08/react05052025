@@ -1,6 +1,8 @@
 import "./App.css";
-import DebouncedCallback from "./day17_performance/DebouncedCallback.tsx";
-import BirthdayRecord from "./day17_performance/birthday_record/BirthdayRecord.jsx";
+import DebouncedCallback from "./day17_performance/DebouncedCallback";
+import BirthdayRecord from "./day17_performance/birthday_record/BirthdayRecord";
+import ParentComponent from "./day17_performance/notes/ParentComponent";
+import UseMemoExample from "./day17_performance/notes/UseMemoExample";
 // import SelectAllFormSolution from "./many_practices/SelectAllForm/solution";
 // import TodoApp from "./day18_todoApp";
 // import ReduxTodoSolution from "./ReduxTodoSolution";
@@ -20,6 +22,8 @@ function App() {
     <>
       <DebouncedCallback />
       <BirthdayRecord />
+      <ParentComponent />
+      <UseMemoExample />
       {/* <TodoApp /> */
       /* <ReduxTodoSolution /> */
       /* <Toggle />
