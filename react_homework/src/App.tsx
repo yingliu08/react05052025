@@ -1,16 +1,37 @@
 import "./App.css";
-
-import SelectAllFormSolution from "./many_practices/SelectAllForm/solution";
-import ReduxTodoSolution from "./ReduxTodoSolution";
-import Day22Play from "./day22_testing";
-import TodoApp from "./day18_todoApp";
+import DebouncedCallback from "./day17_performance/DebouncedCallback.tsx";
+import BirthdayRecord from "./day17_performance/birthday_record/BirthdayRecord.jsx";
+// import SelectAllFormSolution from "./many_practices/SelectAllForm/solution";
+// import TodoApp from "./day18_todoApp";
+// import ReduxTodoSolution from "./ReduxTodoSolution";
+// import Day22Play from "./day22_testing";
+// import TodoListApp from "./day12_interactivity/TodoListApp/index.tsx";
+// import Checkbox from "./day12_interactivity/ControlledComponents/Checkbox.tsx";
+// import Select from "./day12_interactivity/ControlledComponents/Select.tsx";
+// import RadioGroup from "./day12_interactivity/ControlledComponents/RadioGroup.tsx";
+// import LoginForm from "./day16_pattern/ref/LoginForm.tsx";
+// import AutoFocusInput from "./day16_pattern/ref/AutoFocusInput.tsx";
+// import FetchPosts from "./day16_pattern/customHook/fetch/FetchPosts.tsx";
+// import Debounce from "./day16_pattern/customHook/debounce/Debounce.tsx";
+// import Toggle from "./day16_pattern/notes/Toggle.tsx";
 
 function App() {
   return (
     <>
-      {/* <TodoApp /> */}
-      <ReduxTodoSolution />
-      <Day22Play />
+      <DebouncedCallback />
+      <BirthdayRecord />
+      {/* <TodoApp /> */
+      /* <ReduxTodoSolution /> */
+      /* <Toggle />
+      <Debounce />
+      <AutoFocusInput />
+      <FetchPosts />
+      <LoginForm />
+      <RadioGroup />
+      <Checkbox />
+      <Select />
+      <TodoListApp />
+      <Day22Play /> */}
     </>
   );
 }
