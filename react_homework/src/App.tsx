@@ -1,6 +1,7 @@
 import "./App.css";
 import DebouncedCallback from "./day17_performance/DebouncedCallback";
 import BirthdayRecord from "./day17_performance/birthday_record/BirthdayRecord";
+import ClassNote from "./day17_performance/notes/ClassNote";
 import ParentComponent from "./day17_performance/notes/ParentComponent";
 import UseMemoExample from "./day17_performance/notes/UseMemoExample";
 // import SelectAllFormSolution from "./many_practices/SelectAllForm/solution";
@@ -18,8 +19,10 @@ import UseMemoExample from "./day17_performance/notes/UseMemoExample";
 // import Toggle from "./day16_pattern/notes/Toggle.tsx";
 
 function App() {
+  return <ClassNote />;
   return (
     <>
+      <ClassNote />
       <DebouncedCallback />
       <BirthdayRecord />
       <ParentComponent />
