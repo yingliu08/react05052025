@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.send(req.query.name);
+  res.send(req.query.name); // send john to client from localhost:3000/users?name=john
 });
 
 router.get("/new", (req, res) => {
