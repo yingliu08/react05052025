@@ -18,11 +18,11 @@ const usersInfo = [
     birthdate: "05/12/2018",
   },
 ];
-
+//root path
 app.get("/", (req, res) => {
   res.send("hello");
 });
-
+// login
 app.post("/login", (req, res) => {
   const { username } = req.body;
   const userInfo = usersInfo.find((user) => {
@@ -33,9 +33,12 @@ app.post("/login", (req, res) => {
   const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET);
   res.status(200).json({ message: "found user", token });
 });
+
 app.get("/profile", authorizedToken, (req, res) => {
   res.status(200).json({ message: "user info", user: req.user });
 });
+
+//verify token
 function authorizedToken(req, res, next) {
   const header = req.headers["authorization"];
   const token = header && header.split(" ")[1];
