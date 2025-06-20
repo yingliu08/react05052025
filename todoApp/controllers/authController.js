@@ -14,8 +14,11 @@ function login(req, res) {
   const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
     expiresIn: "10m",
   });
-
-  res.status(200).json({ message: "login successfully", token });
+  //store token into cookie
+  res.cookie("token", token, {
+    httpOnly: true,
+  });
+  res.status(200).json({ message: "login successfully" });
 }
 
 // POST /register
@@ -36,8 +39,9 @@ function profile(req, res) {
 
 // POST /logout
 function logout(req, res) {
-  const token = req.headers["authorization"]?.split(" ")[1];
+  const token = req.cookies.token;
   blackList.add(token);
+  res.clearCookie("token");
   res.status(200).json({ message: "log out successfully" });
 }
 
