@@ -6,11 +6,11 @@ const PORT = 3000;
 app.use(cookieParser());
 app.use(express.json());
 
-const authRoutes = require("./routes/authRoutes");
-const todosRoutes = require("./routes/todosRoutes");
+const userRoutes = require("./routes/userRoutes");
+const todoRoutes = require("./routes/todoRoutes");
 
-app.use("/", authRoutes);
-app.use("/", todosRoutes);
+app.use("/", userRoutes);
+app.use("/", todoRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

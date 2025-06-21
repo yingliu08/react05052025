@@ -5,7 +5,7 @@ const {
   register,
   profile,
   logout,
-} = require("../controllers/authController");
+} = require("../controllers/userController");
 
 const verifyToken = require("../middleware/verifyToken");
 

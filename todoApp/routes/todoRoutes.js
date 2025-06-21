@@ -5,7 +5,7 @@ const {
   addTodos,
   updateTodos,
   deleteTodos,
-} = require("../controllers/todosController");
+} = require("../controllers/todoController");
 const verifyToken = require("../middleware/verifyToken");
 
 router.get("/todos", verifyToken, fetchTodos);
